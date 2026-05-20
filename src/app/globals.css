@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fff8ef;
+  --surface: #ffffff;
+  --foreground: #2d3748;
+  --muted: #7a6f65;
+  --border: #f0e4d4;
+
+  --primary: #ee7b5c;
+  --primary-hover: #e26a4a;
+  --primary-soft: #fde6dd;
+
+  --accent-home: #f5c56b;
+  --accent-activities: #ee7b5c;
+  --accent-track: #a47ab8;
+  --accent-progress: #3fbab0;
+  --accent-settings: #7a8b9a;
+
+  --shadow-sm: 0 1px 2px rgba(45, 55, 72, 0.06);
+  --shadow-md: 0 4px 12px rgba(45, 55, 72, 0.08);
+  --shadow-lg: 0 10px 30px rgba(45, 55, 72, 0.12);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-soft: var(--primary-soft);
+  --color-accent-home: var(--accent-home);
+  --color-accent-activities: var(--accent-activities);
+  --color-accent-track: var(--accent-track);
+  --color-accent-progress: var(--accent-progress);
+  --color-accent-settings: var(--accent-settings);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  overscroll-behavior-y: none;
+}
+
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+button {
+  font-family: inherit;
+}
+
+@layer utilities {
+  .safe-bottom {
+    padding-bottom: var(--safe-bottom);
+  }
+  .safe-top {
+    padding-top: var(--safe-top);
+  }
+}
