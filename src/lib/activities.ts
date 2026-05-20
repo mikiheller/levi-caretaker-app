@@ -128,6 +128,18 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [15, 25],
     materials: ["Toy food or real snacks", "Plates and cups", "Notepad (pretend order pad)", "Apron or chef hat (optional)"],
     learningGoals: ["AAC use", "Requesting", "Turn taking", "Following directions"],
+    lesson: {
+      setup:
+        "Gather pretend food, plates, cups, and a small notepad if you have one — real snacks work great if those will hold his interest. Decide together what Levi wants to be: chef, waiter, or customer, by holding up two pictures or using the choices app. Make a simple paper menu together with him pointing to two or three foods he wants to include, and decorate it with stickers or markers.",
+      duringPlay:
+        "Set the table, then act out the scene with exaggerated energy: \"Welcome! Table for one?\" \"What can I get for you today?\" Use repetitive phrases he can fill in or echo: \"more please,\" \"all done,\" \"thank you!\" If Levi is the customer, pause and wait for him to point, look, or use AAC to order. If he's the waiter, model handing the food over: \"Here's your pizza, sir!\" Be a little dramatic with the food — blow on it because it's hot, sniff it, react big to a \"delicious\" first bite. The hammed-up reactions are what keep the scene alive.",
+      ifLosingInterest:
+        "Pivot the menu. Switch from food to \"silly soup\" with toys floating in it, or pretend a teddy bear walked in and wants to order. Adding an animal customer he can carry around usually pulls him back into the play.",
+      wrappingUp:
+        "Have him help clear the table, put food back into bins, and wipe the counter — lots of natural one- and two-step directions in context.",
+      closingNote:
+        "Use real snacks when you can. If he asks for more and gets a real bite, the requesting becomes meaningful immediately.",
+    },
   },
   {
     id: "doctor-kit",
@@ -368,6 +380,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [10, 25],
     materials: ["Couch cushions", "Pillows", "Painter's tape (for lines on the floor)", "Hula hoop (optional)"],
     learningGoals: ["Imitation", "Following directions", "Waiting", "Motor planning"],
+    lesson: {
+      setup:
+        "Build a quick circuit using cushions, pillows, a hula hoop, and painter's tape if you have it. Three or four stations is plenty — crawl through the tunnel, jump on the pillow, balance along the tape line, then back to start. Let Levi help pick the stations by holding up two pictures or two cushions and asking, \"Which one next?\"",
+      duringPlay:
+        "Demo the course yourself first, exaggerating each motion: \"I'm crawling… now I'm JUMPING!\" Then it's his turn. Cheer big at each station. If he wants to do it ten times in a row, let him — repetition builds confidence and motor planning. Add a stuffed animal at the end of the course as the \"finish line\" and have him pick it up. Lots of opportunities for following directions, imitation, and waiting his turn if you're going through it together.",
+      ifLosingInterest:
+        "Add narration. \"Oh no, lava on the floor — jump!\" \"Can you save the bunny at the end?\" If he wants to break the course apart and pile it up, that's also great gross motor and gives you something to rebuild.",
+      wrappingUp:
+        "Carrying cushions back to the couch is part of the activity — \"Levi, put the pillow on the chair, please.\"",
+    },
   },
   {
     id: "dance-parties",
@@ -386,6 +408,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [10, 20],
     materials: ["Phone or speaker for music"],
     learningGoals: ["Imitation", "Requesting more", "AAC use", "Joint attention"],
+    lesson: {
+      setup:
+        "Cue up 3-4 of his favorite songs in a playlist on your phone or speaker. Bluey, Cocomelon, Disney, Bruno Mars — whatever he lights up for. Dim the lights or add lamps to set the mood if you want to make it extra fun.",
+      duringPlay:
+        "Start dancing — be the silliest version of yourself. Big arms, big stomps, dramatic spins. He will mostly watch and copy. Every couple of verses, pause the music for a beat and wait expectantly — most kids will lean in, vocalize, or hit play themselves. That little pause is one of the best communication opportunities you'll get all day. Try freeze dance: when the music stops, everyone freezes. Try slow-then-fast or low-then-high movements he can imitate.",
+      ifLosingInterest:
+        "Switch the song. Or pull out an extra prop — scarves to wave, a balloon to bat around, glow sticks if it's getting dim. Try mirroring his movements back to him exactly; sometimes that lights him up.",
+      wrappingUp:
+        "Put on a slower song to wind down, then put the speaker or phone away together.",
+    },
   },
   {
     id: "balloon-bubble",
@@ -404,6 +436,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [10, 20],
     materials: ["Balloons", "Bubble solution and wand"],
     learningGoals: ["Requesting", "AAC use", "Joint attention", "Motor planning"],
+    lesson: {
+      setup:
+        "Blow up 2-3 balloons (different colors if you have them) and grab the bubble wand or machine. A clear floor space is all you need.",
+      duringPlay:
+        "Bat the balloon back and forth, narrating every contact: \"You got it!\" \"Up high!\" Pause and hold the balloon, waiting for him to reach, gesture, or use AAC to say \"more.\" For bubbles, freeze the wand right before blowing and wait for the request — eye contact, a reach, a vocalization — anything counts. Vary the bubble size: \"Big one!\" \"Tiny ones!\" Catch a bubble on the wand and let him pop it gently. The pause-and-wait is the whole game.",
+      ifLosingInterest:
+        "Change the rules. Balloon volleyball over the couch, balloon between your knees, who can keep it up the longest. With bubbles, let him try to blow them (great oral-motor exercise) or pop with his elbow, his nose, his toe.",
+      wrappingUp:
+        "Pick up popped balloon pieces together. Bubbles dry on their own.",
+    },
   },
   {
     id: "yoga-for-kids",
@@ -421,6 +463,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [5, 15],
     materials: ["Yoga mat or rug", "Cosmic Kids Yoga on YouTube (optional)"],
     learningGoals: ["Imitation", "Body awareness", "Regulation", "Following directions"],
+    lesson: {
+      setup:
+        "Roll out a yoga mat or use a rug. Cosmic Kids Yoga on YouTube is fantastic and themed around animals and stories he'll find familiar. Dim lights and calming music if he needs to come down a notch.",
+      duringPlay:
+        "Start with simple, animal-themed poses: downward dog (\"woof!\"), butterfly (open and close your knees), cat/cow (arch and round your back, \"meow,\" \"moo\"), tree pose, child's pose for a rest. Demonstrate each pose with big body language and let him imitate — even if it's just a partial version. Hold each pose only as long as he stays engaged, which might be a few seconds, and that's totally fine. Slow, deep breaths are gold here — try breathing in as you grow tall, out as you fold forward.",
+      ifLosingInterest:
+        "Switch to wilder animal poses — frog hops, snake on the floor, bear walk. Movement keeps it interesting.",
+      wrappingUp:
+        "End in child's pose or savasana for a minute with a gentle hand on his back. Roll up the mat together.",
+    },
   },
   {
     id: "scavenger-hunts",
@@ -517,6 +569,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [10, 25],
     materials: ["Kinetic sand", "Plastic knife or scoops", "Molds or cookie cutters", "Small hidden objects"],
     learningGoals: ["Fine motor", "Requesting", "Sensory regulation", "Imitation"],
+    lesson: {
+      setup:
+        "Put kinetic sand in a shallow bin or on a tray to keep it contained. Pull out cookie cutters, plastic knives, small scoops, and a few small toys to hide — animals, letters, cars. Let Levi pick which tools and which hidden items to use by holding up two at a time.",
+      duringPlay:
+        "Start by just letting him squish and explore. Narrate naturally: \"You're squeezing it!\" \"Look, it falls apart!\" Then introduce a little play: hide a lion and ask \"Where's the lion?\" Help him use a scoop or his hands to dig. Make sand pancakes with the cookie cutters. Practice cutting with a plastic knife. The texture and tools give you many opportunities to model requests — \"more sand,\" \"my turn,\" \"the cutter, please.\"",
+      ifLosingInterest:
+        "Add water in a separate cup to make the sand stickier (only if you have time for cleanup). Or take the sand outside and use it more freely in a bigger space.",
+      wrappingUp:
+        "Scrape the sand back into its container together and wipe the tray. Cleaning up is part of the game.",
+    },
   },
   {
     id: "sensory-bins",
@@ -574,6 +636,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [5, 15],
     materials: ["Bubble solution and wand", "Bubble machine (optional)"],
     learningGoals: ["Requesting", "AAC use", "Joint attention"],
+    lesson: {
+      setup:
+        "Bring out a bubble machine if you have one (best for indoor fun), or just a wand and solution outdoors. Make sure his AAC is within reach — this is one of the best moments for requesting practice.",
+      duringPlay:
+        "Turn the machine on or blow a stream of bubbles, then pause. Wait. Don't fill the silence — just hold the wand still and look at him with eyebrows up. He'll reach, vocalize, point to \"more\" on the AAC, or grab your arm — any of those count as a request, and you respond with more bubbles. Vary it up: \"big one!\" \"tiny ones!\" Catch a bubble on the wand and let him pop it. Pop them on different body parts: \"On your nose!\" \"On your foot!\"",
+      ifLosingInterest:
+        "Let him try to blow them himself (great for oral motor strength). Or do a bubble-chase around the room.",
+      wrappingUp:
+        "Put the wand back in the bottle and wipe up wet spots. Sticky floors are no joke.",
+    },
   },
 
   // ===== STRUCTURED TABLE =====
@@ -592,6 +664,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [5, 15],
     materials: ["A puzzle (wooden, interlocking, or matching)"],
     learningGoals: ["Fine motor", "Persistence", "Following directions", "Visual scanning"],
+    lesson: {
+      setup:
+        "Pick a puzzle that's slightly easier than his ceiling — wooden chunky puzzles, shape sorters, or 6-12 piece floor puzzles are great. Lay out the pieces face-up. Limit it to one puzzle at a time so the table doesn't feel overwhelming.",
+      duringPlay:
+        "Let him explore the pieces first. Hand him one and model: \"This one is the horse. Where does the horse go?\" Pause and let him try. If he gets stuck, point to the spot or rotate the piece slightly. Don't grab the piece from him — wait and offer hints. Celebrate every fit, even with help. For shape sorters, name the shape and color as you go: \"Red triangle goes in… here!\"",
+      ifLosingInterest:
+        "Hide one or two pieces around the room and turn it into a tiny scavenger hunt. Or make silly sounds when each piece fits — kazoo noises, woohoos. Pulling out a totally new puzzle sometimes resets his attention.",
+      wrappingUp:
+        "Put the pieces back in the box or shape sorter together. Closing the box becomes a satisfying \"all done!\" moment.",
+    },
   },
   {
     id: "board-games",
@@ -607,6 +689,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [10, 25],
     materials: ["A board game from his favorites"],
     learningGoals: ["Turn taking", "Following directions", "Waiting", "Matching", "Joint attention"],
+    lesson: {
+      setup:
+        "Pick one of Levi's favorites: Candyland, Zingo, Connect 4, Alphabet Bingo, Pop the Pig, Sneaky Snacky Squirrel, Hi-Ho Cherry-O, or Don't Break the Ice. Set it up on the floor or at a low table where you can sit across from each other. If he's not into rules, simplify or skip them entirely — the social interaction is the point.",
+      duringPlay:
+        "Model turn-taking in an exaggerated way: \"My turn… your turn!\" Use clear hand gestures and pause for him to do something on his turn, even if it's just touching a piece. Narrate everything: colors, shapes, numbers, what's happening. If he's into Pop the Pig, count the burgers together. If he gets stuck on one part of the game (like just spinning the spinner over and over), let him — that's where the joy is.",
+      ifLosingInterest:
+        "Reduce the demand: just do colors, or just take turns hitting Pop the Pig. Or change the game entirely. Don't force completion — finishing isn't the goal.",
+      wrappingUp:
+        "Put the pieces back in the box together. \"Where do the cards go?\" \"Can you find the lid?\"",
+    },
   },
   {
     id: "matching-sorting",
@@ -622,6 +714,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [5, 15],
     materials: ["Items to sort (animals, colored blocks, magnetic letters, etc.)"],
     learningGoals: ["Categorization", "Following directions", "Visual scanning", "Fine motor"],
+    lesson: {
+      setup:
+        "Grab a sorting activity that fits where Levi is working: socks by pairs, blocks by color, animals by habitat (zoo vs farm), big vs small. Put everything in one pile and place 2-3 sorting bins or piles nearby.",
+      duringPlay:
+        "Start a sort yourself, narrating: \"This one is red. It goes here!\" Then hand him an item and ask, \"Where does this one go?\" Wait. If he hesitates, gesture toward the right bin without putting it in. Big celebration when he matches, even if it's hit-or-miss. Mix in some silly mistakes on your own turn — \"This banana goes with the cars!\" — and look puzzled. See if he reacts.",
+      ifLosingInterest:
+        "Change what you're sorting (switch from color to shape). Or turn it into a game: race to see who can sort their pile fastest. Add a stuffed animal as the \"judge.\"",
+      wrappingUp:
+        "Combine the piles back into the original container together.",
+    },
   },
   {
     id: "stickers-crafts",
@@ -641,6 +743,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [10, 25],
     materials: ["Stickers", "Markers", "Glue stick", "Paper plates", "Construction paper", "Stamps + ink"],
     learningGoals: ["Fine motor", "Following directions", "Choice making", "Engagement"],
+    lesson: {
+      setup:
+        "Set out one or two craft activities at a time — too many options can be overwhelming. Stickers + colored paper is always a hit. Dot markers, paper plates, stamps, and washable glue sticks are great low-mess options. Cover the surface with newspaper or a craft mat if you're worried about marks.",
+      duringPlay:
+        "Don't try to make a specific picture — focus on the process. Hand him a sticker and let him peel it (great fine motor) and stick it wherever he wants. With dot markers, model big dots, then a little dot, then dots in a row. Narrate colors, count the dots, name what he's making (even if it's a scribble — \"You made a sun!\"). Resist the urge to direct or correct. Let him do it his way.",
+      ifLosingInterest:
+        "Switch the medium — markers to stamps, stickers to glue stick. Or let him stick stickers on YOU, your shirt, your face. Big reactions help.",
+      wrappingUp:
+        "Hang his creation somewhere visible — fridge, his bedroom — so he sees it's valued. Cleanup with a damp cloth he can use himself.",
+    },
   },
 
   // ===== COMMUNICATION =====
@@ -659,6 +771,18 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [5, 15],
     materials: ["Two preferred items (held up at once) or the choices app on the iPad"],
     learningGoals: ["AAC use", "Requesting", "Choice making", "Joint attention"],
+    lesson: {
+      setup:
+        "Choice Time isn't really a dedicated activity — it's a habit you weave into the whole day. The setup is just keeping the AAC or a choices app within reach during meals, before transitions, and any moment Levi might want to express a preference.",
+      duringPlay:
+        "At least a few times each hour, present Levi with two options. Hold up two snacks: \"Apple, or cracker?\" Two songs: \"Old MacDonald, or Wheels on the Bus?\" Two activities: \"Bubbles, or coloring?\" Wait for him to point, look, reach, vocalize, or tap the AAC. Whichever option he picks, narrate the choice — \"You picked the apple!\" — and follow through. The whole point is that his choice MATTERS, so always honor it (even when both options were genuinely fine with you).",
+      ifLosingInterest:
+        "If he ignores both options, try a smaller decision (just one of two colors of marker), or wait a beat and try again later. Choices fail when he doesn't actually care about either option — pick things that are meaningfully different to him.",
+      wrappingUp:
+        "There's no real wrap-up — Choice Time keeps happening all day.",
+      closingNote:
+        "You'll know it's working when he starts initiating choices without prompting — leading you to a snack, handing you a book, pointing at the iPad. That's the milestone we're building toward.",
+    },
   },
   {
     id: "snack-helper",
@@ -676,6 +800,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [10, 20],
     materials: ["A snack and drink", "A small cloth or paper towel"],
     learningGoals: ["Requesting", "Following directions", "Functional skills", "Imitation"],
+    lesson: {
+      setup:
+        "Pick a snack that requires a few small steps to prepare — peeling a banana, opening a yogurt, scooping crackers from a bag into a bowl. Set out the materials in front of you both.",
+      duringPlay:
+        "Let Levi do as much as he can. Hand him the closed yogurt and wait for him to ask for help by reaching, vocalizing, or tapping AAC. Open it just a little and let him peel the rest of the foil. Scooping crackers: hand him the scoop, then back off. Pouring his drink: let him try, even if some spills. Narrate each step naturally: \"You're opening it!\" \"Pour, pour, pour…\" Wait for \"more\" before refilling.",
+      ifLosingInterest:
+        "If he's hungry, just feed him — don't force the prep play. If he's not hungry, this won't go well. Best time is right before snack or meal.",
+      wrappingUp:
+        "Have him bring his bowl and cup to the sink — \"Levi, put this in the sink please.\" Wiping up his own crumbs with a damp cloth is also a great habit.",
+    },
   },
   {
     id: "song-fill-ins",
@@ -691,6 +825,18 @@ export const ACTIVITIES: Activity[] = [
     ],
     estimatedMinutes: [5, 15],
     learningGoals: ["Anticipation", "AAC use", "Vocal imitation", "Joint attention"],
+    lesson: {
+      setup:
+        "Pull up 2-3 of his favorite songs with predictable, repetitive parts: Old MacDonald, Wheels on the Bus, The Itsy Bitsy Spider, If You're Happy and You Know It, Twinkle Twinkle. You can sing them yourself or play them and pause.",
+      duringPlay:
+        "Sing the song, then right before a key word, pause and look at him expectantly. \"Old MacDonald had a ___\" (pause). Even if he doesn't fill in the word, he might vocalize, reach for you, smile, or look at the iPad — all forms of participation. Pair the song with motions when you can: spider crawling fingers up his arm, wheels on the bus rolling arms. The motions give him an opportunity to imitate without needing to vocalize.",
+      ifLosingInterest:
+        "Switch the song. Or let him pick the next one from two choices.",
+      wrappingUp:
+        "A natural place to end is right after a song he loves, while he's still happy.",
+      closingNote:
+        "If he ever does fill in a word or a sound, even a partial one, react like he just won a Grammy. The next time he'll be more likely to try.",
+    },
   },
 
   // ===== OUTDOOR =====
@@ -708,6 +854,16 @@ export const ACTIVITIES: Activity[] = [
     ],
     estimatedMinutes: [20, 60],
     learningGoals: ["Motor planning", "Waiting", "Joint attention", "Following directions"],
+    lesson: {
+      setup:
+        "Bring water, a snack, and his favorite stuffed animal or comfort item. Choose a park that's not too overwhelming — if he's having a high-arousal day, skip the crowded playground.",
+      duringPlay:
+        "Let him lead. Some days will be all swings, some days he'll be doing laps around the play structure, some days he'll just want to sit on a bench. All are great. As he moves around, narrate: \"You're climbing high!\" \"Whoa, fast slide!\" Practice waiting at the slide if there are other kids — model lining up. Watch for moments of social observation — when he looks at another kid, narrate it: \"That girl is climbing too!\"",
+      ifLosingInterest:
+        "Try a different piece of equipment. Pull out the comfort toy. If he's done, he's done — don't push it. A short positive visit beats a long meltdown.",
+      wrappingUp:
+        "Use a transition warning: \"Two more swings, then we go.\" Carry him to the car if needed, or hold his hand and walk. Snack in the car is a nice way to end.",
+    },
   },
   {
     id: "nature-walks",
@@ -752,6 +908,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [15, 30],
     materials: ["Sidewalk chalk"],
     learningGoals: ["Fine motor", "Pre-writing", "Following directions", "Joint attention"],
+    lesson: {
+      setup:
+        "Bring a bucket of sidewalk chalk outside. A driveway, sidewalk, or patio works great. Bring a damp cloth or hose if you want to be able to erase.",
+      duringPlay:
+        "Let him scribble freely first. Then model some simple things: a big circle, a smiley face, his name (\"L… E… V… I!\"). Trace his foot or hand on the ground. Draw a hopscotch path and jump through it together. Try a tic-tac-toe grid. Practice writing letters together by tracing big shapes — \"Make an O! Now an L!\" The big motor movement of drawing on the ground is great regulation.",
+      ifLosingInterest:
+        "Make a chalk obstacle course — circles to jump in, lines to walk on. Or hide letters around the driveway and ask him to find a specific one.",
+      wrappingUp:
+        "Wash the chalk off with the hose or a water bottle together — usually his favorite part.",
+    },
   },
   {
     id: "bike-scooter",
@@ -767,6 +933,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [15, 45],
     materials: ["His bike or scooter", "Helmet"],
     learningGoals: ["Gross motor", "Regulation", "Motor planning", "Following directions"],
+    lesson: {
+      setup:
+        "Helmet first — make it a non-negotiable, gentle ritual. Pick a safe spot: empty driveway, quiet sidewalk, or a wide path at the park.",
+      duringPlay:
+        "Let him ride freely first. If he's still learning, help with balance, foot placement, or pushing off. Narrate the experience: \"You're going SO fast!\" \"Steer left!\" Set up little goals — ride to that tree and back, ride to the mailbox, race a stuffed animal you're carrying. Practice stopping at corners or specific spots — great for following directions.",
+      ifLosingInterest:
+        "Add a goal he cares about — riding to find a treat you've stashed somewhere. Or switch to walking the bike/scooter for a bit and try again later.",
+      wrappingUp:
+        "Park the bike in its spot together. Helmet off as the final step makes the routine clear.",
+    },
   },
   {
     id: "picnic",
@@ -783,6 +959,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [30, 60],
     materials: ["A picnic blanket", "Snacks", "Drinks"],
     learningGoals: ["Functional communication", "Waiting", "Requesting", "Joint attention"],
+    lesson: {
+      setup:
+        "Pack together if you can — let him help choose snacks, fill water bottles, grab the blanket. Bring AAC and a comfort toy. Pack 2-3 snack options so he has choices once you're there.",
+      duringPlay:
+        "Spread the blanket together. Sit and eat slowly. Use the picnic as a long, low-key opportunity for choice making and requesting — \"Apple or cracker?\" \"More water?\" Point out things in the environment: birds, dogs, kids, leaves blowing. Let him climb on the blanket, lie down, eat in his own way. If he wants to move around, follow him.",
+      ifLosingInterest:
+        "Picnics are usually a quick activity for him — 15-20 minutes is plenty. Once he's done eating, transition to the playground or a walk.",
+      wrappingUp:
+        "Have him help pack up — putting trash in the bag, folding the blanket (badly is fine), carrying snacks back to the car.",
+    },
   },
 
   // ===== FUNCTIONAL =====
@@ -799,6 +985,16 @@ export const ACTIVITIES: Activity[] = [
     ],
     estimatedMinutes: [10, 25],
     learningGoals: ["Functional skills", "Following directions", "Matching", "Fine motor"],
+    lesson: {
+      setup:
+        "Bring the laundry basket to wherever Levi is, ideally somewhere with floor space. Sort options: socks for matching, shirts vs pants, towels vs clothes. Keep the task simple — pick one sort.",
+      duringPlay:
+        "Dump the clean clothes in a pile and demo: \"This is a sock. Where's its partner?\" Hand him a sock and let him hunt for the match. Big celebration when he finds it. Other variations: hand him each item and ask him to drop it in the right basket. Have him push the basket from room to room. Practice carrying his own folded clothes to his drawer.",
+      ifLosingInterest:
+        "Make it physical — race to find the next sock, throw socks into a basket like basketball, hide a few in his shirt and \"find\" them later. The chore disappears when it gets silly.",
+      wrappingUp:
+        "Have him deliver one finished pile to its destination — his drawer, the closet — for a satisfying \"all done.\"",
+    },
   },
   {
     id: "cooking-helper",
@@ -815,6 +1011,16 @@ export const ACTIVITIES: Activity[] = [
     ],
     estimatedMinutes: [15, 30],
     learningGoals: ["Functional skills", "Sequencing", "Following directions", "Choice making"],
+    lesson: {
+      setup:
+        "Pick a recipe with 2-3 steps Levi can genuinely help with: stirring pancake batter, spreading peanut butter, pressing buttons on the blender, placing toppings on a pizza. Set up a low surface he can reach. Apron optional, but he'll feel important.",
+      duringPlay:
+        "Walk through each step with him. Hand him the spoon and let him stir. Cover his hand with yours to spread butter on bread. Let him press the button on the blender (very motivating). Let him put the toppings on the pizza in whatever pattern he wants. Narrate the sensory experience — \"That's STICKY!\" \"Smell the cinnamon!\" — and the steps — \"Now we mix… now we taste!\"",
+      ifLosingInterest:
+        "Let him just eat the ingredients if he wants — chocolate chips, blueberries, a spoonful of peanut butter. The eating is the real motivation, and that's okay.",
+      wrappingUp:
+        "He helps clean up — wiping the counter with a damp cloth, putting the bowl in the sink. Then you eat what you made together.",
+    },
   },
   {
     id: "cleaning-games",
@@ -832,6 +1038,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [10, 20],
     materials: ["Spray bottle with water", "Cloth", "Small broom"],
     learningGoals: ["Functional skills", "Following directions", "Motor planning"],
+    lesson: {
+      setup:
+        "Pick a small area — the play room floor, the kitchen table, the bathroom counter. Bring a spray bottle of water, a cloth, and a small broom or dustpan.",
+      duringPlay:
+        "Make it a race or a game. \"Toy pickup challenge! Can you put all the cars in the basket before this song ends?\" Spray the table once and let him wipe it with the cloth — he'll love the spray bottle. Sweep crumbs into the dustpan together. Sing a cleanup song while you do it. Narrate the difference: \"Look how clean!\" Show him the dirty cloth, then the clean spot.",
+      ifLosingInterest:
+        "Switch areas. Or add a stuffed animal that needs help \"cleaning its room.\"",
+      wrappingUp:
+        "Show him the before-and-after by walking through the space. Celebrate the result big.",
+    },
   },
   {
     id: "dressing-practice",
@@ -848,6 +1064,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [10, 20],
     materials: ["Dolls or stuffed animals with clothes", "Buttons/zippers practice board (optional)"],
     learningGoals: ["Fine motor", "Self-care", "Following directions", "Sequencing"],
+    lesson: {
+      setup:
+        "Grab 2-3 dolls or stuffed animals and a small pile of clothing they can wear — doll clothes, baby clothes that fit a teddy bear, or scarves and hats. A buttons-and-zippers practice board (if you have one) is great too.",
+      duringPlay:
+        "\"Oh no, the bear is cold! Let's put on his sweater.\" Hand the sweater to Levi and help him pull it over the bear's head. Practice each fastener: zipping the zipper, snapping the snap, buttoning a button. After the doll is dressed, switch to Levi: \"Now your turn — can you put on this hat?\" Practice pulling shirts off and on, zipping his own jacket. Keep it playful: take silly photos, parade the dressed-up animals around.",
+      ifLosingInterest:
+        "Put the clothes on YOU instead — doll shoes on your fingers, a hat on the dog. The absurdity often re-engages him.",
+      wrappingUp:
+        "Put the dolls to bed in their new outfits, or hang the clothes back up together.",
+    },
   },
 
   // ===== REGULATION =====
@@ -866,6 +1092,18 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [5, 20],
     materials: ["Weighted blanket", "Soft toys", "Dim or warm lighting"],
     learningGoals: ["Regulation", "Self-soothing", "Body awareness"],
+    lesson: {
+      setup:
+        "Pick a soft, low-stimulation spot — corner of the playroom, his bed, a tent or fort, the cozy couch. Bring his weighted blanket, a couple of favorite stuffed animals, and maybe a soft toy or sensory object. Dim the lights. Optional: soft music or white noise.",
+      duringPlay:
+        "This isn't really an activity — it's a recovery space. Sit with him quietly. Offer to read a book if he wants one. Offer a deep-pressure hug. Don't fill the silence with talk. Just be there. If he wants to lie under the blanket, let him. If he wants to rock, rock with him. Notice when his breathing slows or his body softens — that's the goal.",
+      ifLosingInterest:
+        "If he's already regulated and wanting to move, the Cozy Corner has done its job. Transition out gently.",
+      wrappingUp:
+        "When he's ready, transition slowly. Talk softly. Move slowly. Pick the next activity to be a low-key one.",
+      closingNote:
+        "The Cozy Corner is most powerful BEFORE he's dysregulated, not just after. Try going there preemptively when you sense the day is getting big.",
+    },
   },
   {
     id: "read-aloud-time",
@@ -882,6 +1120,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [10, 20],
     materials: ["A few favorite picture books"],
     learningGoals: ["Joint attention", "Vocabulary", "Anticipation", "AAC use"],
+    lesson: {
+      setup:
+        "Pick 2-3 of his favorite picture books — repetition is great, not boring. Find a comfortable spot where you can sit close together — couch, bed, floor with cushions.",
+      duringPlay:
+        "Let him pick the book. Read with energy and big expressions. Pause at predictable parts and wait for him to fill in — point to the picture, tap the AAC, or vocalize. \"Goodnight, ___.\" Use silly voices for different characters. If he wants to flip the pages himself, let him — even if you skip ahead. The point isn't finishing the story; it's the shared moment.",
+      ifLosingInterest:
+        "Switch books. Or read the same book three times in a row — repetition builds anticipation, which is a great precursor to language.",
+      wrappingUp:
+        "Put the books back on the shelf together. A simple \"all done\" closing routine helps with transitions.",
+    },
   },
   {
     id: "deep-pressure-massage",
@@ -899,6 +1147,18 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [5, 15],
     materials: ["A soft blanket", "Lotion (optional)"],
     learningGoals: ["Regulation", "Body awareness", "Connection"],
+    lesson: {
+      setup:
+        "Pick a comfortable spot — his bed, the floor with a soft surface, post-bath when he's already in a calm state. Optional: lotion (a scent he likes), a weighted blanket, a pillow.",
+      duringPlay:
+        "Start with a few firm, slow hugs. \"Big squeezes!\" Then move into pressure on different parts: gently squeeze his shoulders, his hands, his feet, one at a time. The pressure should be firm and slow — never tickling or light. Try blanket burritos: roll him up in a blanket (head out!) and gently squeeze along the length. Pillow squishes: a pillow on his back as he lies face down, pressed gently. Lotion massage on hands and feet after a bath is incredibly calming for many kids.",
+      ifLosingInterest:
+        "If he wiggles away, follow his lead. He'll often come back. If he's done, he's done — pressure work isn't something to force.",
+      wrappingUp:
+        "End with a few moments of just lying or sitting together. The transition to the next activity should be slow.",
+      closingNote:
+        "Deep pressure is most powerful in transitions — before sleep, before a big shift in the day, when you sense him getting dysregulated. Build it into the daily rhythm.",
+    },
   },
 
   // ===== SPECIAL =====
@@ -917,6 +1177,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [30, 90],
     materials: ["Blankets, chairs, cushions", "Books, flashlights, snacks"],
     learningGoals: ["Imaginative play", "Joint attention", "Communication"],
+    lesson: {
+      setup:
+        "Block off an afternoon. Gather blankets, cushions, pillows, chairs, flashlights, books, his favorite stuffed animals, and snacks. The biggest possible fort — couch cushions removed, blankets draped over chairs and tables, pillows on the floor — is the dream.",
+      duringPlay:
+        "Build the fort with him. Let him be in charge of where things go. Once it's built, live inside it for as long as he wants — eat snacks in there, read books, watch a show on a tablet, pretend to camp. Crawl in and out together. Bring stuffed animals as \"guests.\" Pretend it's a different place — a cave, a spaceship, a treehouse. The whole afternoon can be one long imaginative game.",
+      ifLosingInterest:
+        "Crash and rebuild — sometimes that's the best part. Or invite a parent in for a \"fort meeting.\"",
+      wrappingUp:
+        "Cleanup is part of the play — fold blankets, return pillows to the couch. Take a few minutes to put everything back so the room feels reset.",
+    },
   },
   {
     id: "pajama-dance-party",
@@ -932,6 +1202,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [10, 20],
     materials: ["Glow sticks", "Bubbles", "Speaker/phone with music"],
     learningGoals: ["Joint attention", "Imitation", "Regulation through movement"],
+    lesson: {
+      setup:
+        "PJs on. Lights low. Glow sticks (a few cheap ones from the dollar store last for hours). Speaker or phone with his favorite songs queued up. This is best as an evening wind-down — but a high-energy one.",
+      duringPlay:
+        "Hand him a glow stick. Start the music. Dance like you're at a concert. Make it ridiculous. The combination of glow + music + low lights + you being silly tends to be magical. Try freeze dance, slow songs, fast songs. Hold his hands and twirl him.",
+      ifLosingInterest:
+        "Switch the song or add bubbles. If he's getting too wound up before bed, switch to a slow song to calm down.",
+      wrappingUp:
+        "End with a slow song while you both lie on the floor with the glow sticks. Then transition straight into the bedtime routine.",
+    },
   },
   {
     id: "treasure-hunt",
@@ -947,6 +1227,16 @@ export const ACTIVITIES: Activity[] = [
     estimatedMinutes: [15, 30],
     materials: ["Small preferred items to hide", "A treasure container"],
     learningGoals: ["Visual scanning", "Following directions", "Motor movement"],
+    lesson: {
+      setup:
+        "Hide 5-10 small preferred items around the house — favorite small toys, treats wrapped in foil, a sticker, a tiny note. Make a simple visual map or list using pictures or stickers on paper showing what to find. Have a \"treasure container\" ready — a small bag, basket, or pirate-themed bucket.",
+      duringPlay:
+        "Hand him the map and head off on the hunt together. \"What does the map say next?\" Point to the picture, then look together. \"It's the elephant! Where's the elephant?\" Search room by room with dramatic narration: \"Maybe in the kitchen? Maybe under the couch?\" Big celebration at every find. Have him put each treasure in his container.",
+      ifLosingInterest:
+        "Hide one item in really plain sight to give him a quick win. Or add a big \"final treasure\" at the end that he's seen you put away — that anticipation can carry him through.",
+      wrappingUp:
+        "Count the treasures together when he's done. Open the wrapped items together as the grand finale.",
+    },
   },
   {
     id: "toy-rotation-surprise",
@@ -961,6 +1251,16 @@ export const ACTIVITIES: Activity[] = [
     ],
     estimatedMinutes: [15, 30],
     learningGoals: ["Engagement", "Choice making", "Joint attention"],
+    lesson: {
+      setup:
+        "Once a month or so, pack up a bin of his current toys — the ones he hasn't been playing with — and put it away in a closet. After a couple of weeks (or whenever boredom hits), pull the bin back out and present it like it's brand new.",
+      duringPlay:
+        "Bring the bin in dramatically. \"Look what I found!\" Pull out toys one at a time, with surprise: \"Oh my gosh, it's the dinosaur!\" Hand him each toy and watch him explore. Some he'll have totally forgotten about — those become \"new\" again. Sit and play with him, narrating the toys and what they do. Resist explaining how to play with each one — let him discover his own way.",
+      ifLosingInterest:
+        "Save half the bin for tomorrow. Drip-feeding the surprise extends the magic.",
+      wrappingUp:
+        "Decide together which toys stay out and which can go back into rotation. Make the put-away a collaborative decision so it doesn't feel like a loss.",
+    },
   },
 ];
 
