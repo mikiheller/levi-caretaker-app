@@ -17,6 +17,16 @@
   --accent-progress: #3fbab0;
   --accent-settings: #7a8b9a;
 
+  --cat-pretend: #f1a195;
+  --cat-motor: #93cf91;
+  --cat-sensory: #92bce8;
+  --cat-table: #ebcb78;
+  --cat-comm: #e8a4cc;
+  --cat-outdoor: #8fcec3;
+  --cat-functional: #b7a4d6;
+  --cat-regulation: #adc8eb;
+  --cat-special: #f0c873;
+
   --shadow-sm: 0 1px 2px rgba(45, 55, 72, 0.06);
   --shadow-md: 0 4px 12px rgba(45, 55, 72, 0.08);
   --shadow-lg: 0 10px 30px rgba(45, 55, 72, 0.12);

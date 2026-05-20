@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ActivityLogsProvider } from "@/components/ActivityLogsProvider";
 import { CaretakersProvider } from "@/components/CaretakersProvider";
 import "./globals.css";
 
@@ -52,7 +53,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <CaretakersProvider>{children}</CaretakersProvider>
+        <CaretakersProvider>
+          <ActivityLogsProvider>{children}</ActivityLogsProvider>
+        </CaretakersProvider>
       </body>
     </html>
   );
