@@ -6,6 +6,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import {
@@ -18,6 +19,8 @@ import {
   saveActiveCaretakerId,
   saveCaretakers,
 } from "@/lib/caretakers";
+import { api } from "@/lib/apiClient";
+import { useHousehold } from "@/components/HouseholdProvider";
 
 type CaretakersContextValue = {
   ready: boolean;
@@ -28,7 +31,6 @@ type CaretakersContextValue = {
     role: CaretakerRole;
     emoji?: string;
   }) => Caretaker;
-  updateCaretaker: (id: string, patch: Partial<Caretaker>) => void;
   removeCaretaker: (id: string) => void;
   setActiveCaretaker: (id: string | null) => void;
 };
@@ -40,15 +42,53 @@ export function CaretakersProvider({
 }: {
   children: React.ReactNode;
 }) {
+  const { status } = useHousehold();
   const [ready, setReady] = useState(false);
   const [caretakers, setCaretakers] = useState<Caretaker[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
+  const migratedRef = useRef(false);
 
   useEffect(() => {
     setCaretakers(loadCaretakers());
     setActiveId(loadActiveCaretakerId());
     setReady(true);
   }, []);
+
+  useEffect(() => {
+    if (status !== "connected") return;
+    let cancelled = false;
+
+    (async () => {
+      try {
+        const { caretakers: remote } = await api.listCaretakers();
+
+        if (!migratedRef.current) {
+          migratedRef.current = true;
+          const local = loadCaretakers();
+          const known = new Set(remote.map((c) => c.id));
+          const orphans = local.filter((c) => !known.has(c.id));
+          for (const o of orphans) {
+            try {
+              await api.upsertCaretaker(o);
+            } catch {
+              // best effort
+            }
+          }
+        }
+
+        const { caretakers: latest } = await api.listCaretakers();
+        if (cancelled) return;
+        setCaretakers(latest);
+        saveCaretakers(latest);
+      } catch {
+        // keep using local cache
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [status]);
 
   const persistCaretakers = useCallback((next: Caretaker[]) => {
     setCaretakers(next);
@@ -71,16 +111,10 @@ export function CaretakersProvider({
         createdAt: new Date().toISOString(),
       };
       persistCaretakers([...caretakers, created]);
+      api.upsertCaretaker(created).catch(() => {
+        // keep local; we'll sync next chance
+      });
       return created;
-    },
-    [caretakers, persistCaretakers],
-  );
-
-  const updateCaretaker: CaretakersContextValue["updateCaretaker"] = useCallback(
-    (id, patch) => {
-      persistCaretakers(
-        caretakers.map((c) => (c.id === id ? { ...c, ...patch, id: c.id } : c)),
-      );
     },
     [caretakers, persistCaretakers],
   );
@@ -91,6 +125,7 @@ export function CaretakersProvider({
       if (activeId === id) {
         persistActiveId(null);
       }
+      api.deleteCaretaker(id).catch(() => {});
     },
     [activeId, caretakers, persistActiveId, persistCaretakers],
   );
@@ -106,7 +141,6 @@ export function CaretakersProvider({
       caretakers,
       activeCaretaker,
       addCaretaker,
-      updateCaretaker,
       removeCaretaker,
       setActiveCaretaker: persistActiveId,
     }),
@@ -115,7 +149,6 @@ export function CaretakersProvider({
       caretakers,
       activeCaretaker,
       addCaretaker,
-      updateCaretaker,
       removeCaretaker,
       persistActiveId,
     ],

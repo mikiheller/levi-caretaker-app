@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Trash2, UserPlus, RefreshCw, Check } from "lucide-react";
+import { Trash2, UserPlus, RefreshCw, Check, LogOut } from "lucide-react";
 import { useCaretakers } from "@/components/CaretakersProvider";
+import { useHousehold } from "@/components/HouseholdProvider";
 import { SectionHero } from "@/components/SectionHero";
 import { CARETAKER_ROLES, CaretakerRole } from "@/lib/caretakers";
 
@@ -14,6 +15,7 @@ export default function SettingsPage() {
     removeCaretaker,
     setActiveCaretaker,
   } = useCaretakers();
+  const { disconnect: disconnectHousehold } = useHousehold();
 
   const [showForm, setShowForm] = useState(false);
   const [name, setName] = useState("");
@@ -145,13 +147,28 @@ export default function SettingsPage() {
         </ul>
       </section>
 
-      <section>
+      <section className="space-y-2">
         <button
           onClick={() => setActiveCaretaker(null)}
           className="w-full flex items-center justify-center gap-2 rounded-2xl border border-border bg-surface py-3 text-sm font-medium text-muted active:scale-[0.98] transition"
         >
           <RefreshCw size={15} />
           Sign out of this device
+        </button>
+        <button
+          onClick={() => {
+            if (
+              window.confirm(
+                "Disconnect this device from the household? You'll need the passphrase to reconnect.",
+              )
+            ) {
+              disconnectHousehold();
+            }
+          }}
+          className="w-full flex items-center justify-center gap-2 rounded-2xl border border-border bg-surface py-3 text-sm font-medium text-muted active:scale-[0.98] transition"
+        >
+          <LogOut size={15} />
+          Disconnect this device
         </button>
       </section>
     </div>

@@ -6,6 +6,11 @@ import { AppHeader } from "@/components/AppHeader";
 import { BottomNav } from "@/components/BottomNav";
 import { CaretakerPicker } from "@/components/CaretakerPicker";
 import { useCaretakers } from "@/components/CaretakersProvider";
+import {
+  HouseholdGate,
+  ServerMisconfiguredScreen,
+} from "@/components/HouseholdGate";
+import { useHousehold } from "@/components/HouseholdProvider";
 
 const TOP_LEVEL_ROUTES = ["/home", "/activities", "/track", "/progress", "/settings"];
 
@@ -15,7 +20,31 @@ export default function AppLayout({
   children: React.ReactNode;
 }) {
   const { ready, activeCaretaker } = useCaretakers();
+  const { status, errorMessage } = useHousehold();
   const pathname = usePathname();
+
+  if (status === "checking") {
+    return (
+      <div className="flex-1 flex items-center justify-center text-muted text-sm">
+        Loading…
+      </div>
+    );
+  }
+
+  if (status === "server-misconfigured") {
+    return (
+      <ServerMisconfiguredScreen
+        message={
+          errorMessage ??
+          "The server isn't configured yet. Set up the database and household secret in Vercel."
+        }
+      />
+    );
+  }
+
+  if (status === "needs-secret") {
+    return <HouseholdGate />;
+  }
 
   if (!ready) {
     return (

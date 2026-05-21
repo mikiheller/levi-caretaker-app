@@ -6,6 +6,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import {
@@ -21,6 +22,8 @@ import {
   saveActiveSession,
   saveActivityLogs,
 } from "@/lib/activityLogs";
+import { api } from "@/lib/apiClient";
+import { useHousehold } from "@/components/HouseholdProvider";
 
 type ActivityLogsContextValue = {
   ready: boolean;
@@ -39,16 +42,21 @@ const ActivityLogsContext = createContext<ActivityLogsContextValue | null>(
   null,
 );
 
+const ACTIVE_POLL_MS = 4000;
+const IDLE_POLL_MS = 20000;
+
 export function ActivityLogsProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { status } = useHousehold();
   const [ready, setReady] = useState(false);
   const [logs, setLogs] = useState<ActivityLog[]>([]);
   const [activeSession, setActiveSession] = useState<ActiveSession | null>(
     null,
   );
+  const migratedRef = useRef(false);
 
   useEffect(() => {
     setLogs(loadActivityLogs());
@@ -75,19 +83,86 @@ export function ActivityLogsProvider({
     saveActiveSession(next);
   }, []);
 
+  useEffect(() => {
+    if (status !== "connected") return;
+    let cancelled = false;
+
+    async function refresh() {
+      try {
+        const [{ logs: remoteLogs }, { session }] = await Promise.all([
+          api.listActivityLogs(100),
+          api.getActiveSession(),
+        ]);
+        if (cancelled) return;
+
+        if (!migratedRef.current) {
+          migratedRef.current = true;
+          const localLogs = loadActivityLogs();
+          const known = new Set(remoteLogs.map((l) => l.id));
+          const orphans = localLogs.filter((l) => !known.has(l.id));
+          for (const o of orphans) {
+            try {
+              await api.createActivityLog(o);
+            } catch {
+              // best effort
+            }
+          }
+          if (orphans.length > 0) {
+            const { logs: latest } = await api.listActivityLogs(100);
+            if (!cancelled) {
+              setLogs(latest);
+              saveActivityLogs(latest);
+            }
+          } else {
+            setLogs(remoteLogs);
+            saveActivityLogs(remoteLogs);
+          }
+        } else {
+          setLogs(remoteLogs);
+          saveActivityLogs(remoteLogs);
+        }
+
+        setActiveSession(session);
+        saveActiveSession(session);
+      } catch {
+        // keep cached data
+      }
+    }
+
+    refresh();
+    const id = setInterval(
+      refresh,
+      activeSession ? ACTIVE_POLL_MS : IDLE_POLL_MS,
+    );
+
+    function onVisible() {
+      if (document.visibilityState === "visible") refresh();
+    }
+    document.addEventListener("visibilitychange", onVisible);
+
+    return () => {
+      cancelled = true;
+      clearInterval(id);
+      document.removeEventListener("visibilitychange", onVisible);
+    };
+  }, [status, activeSession]);
+
   const startSession = useCallback<ActivityLogsContextValue["startSession"]>(
     ({ activityId, caretakerId }) => {
-      persistActiveSession({
+      const next: ActiveSession = {
         activityId,
         caretakerId,
         startedAt: new Date().toISOString(),
-      });
+      };
+      persistActiveSession(next);
+      api.setActiveSession(next).catch(() => {});
     },
     [persistActiveSession],
   );
 
   const cancelSession = useCallback(() => {
     persistActiveSession(null);
+    api.clearActiveSession().catch(() => {});
   }, [persistActiveSession]);
 
   const finishSession = useCallback<ActivityLogsContextValue["finishSession"]>(
@@ -112,6 +187,8 @@ export function ActivityLogsProvider({
       };
       persistLogs([log, ...logs]);
       persistActiveSession(null);
+      api.createActivityLog(log).catch(() => {});
+      api.clearActiveSession().catch(() => {});
       return log;
     },
     [activeSession, logs, persistActiveSession, persistLogs],
