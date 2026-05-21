@@ -1,5 +1,6 @@
 import { Caretaker } from "@/lib/caretakers";
 import { ActiveSession, ActivityLog } from "@/lib/activityLogs";
+import { MoodLog } from "@/lib/moodLogs";
 
 export const HOUSEHOLD_SECRET_KEY = "levi.householdSecret.v1";
 export const HOUSEHOLD_SECRET_HEADER = "x-household-secret";
@@ -92,4 +93,13 @@ export const api = {
 
   clearActiveSession: () =>
     request<{ ok: true }>("/api/active-session", { method: "DELETE" }),
+
+  listMoodLogs: (limit = 100) =>
+    request<{ logs: MoodLog[] }>(`/api/mood-logs?limit=${limit}`),
+
+  createMoodLog: (log: MoodLog) =>
+    request<{ log?: MoodLog; deduped?: boolean }>("/api/mood-logs", {
+      method: "POST",
+      body: JSON.stringify(log),
+    }),
 };

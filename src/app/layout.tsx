@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ActivityLogsProvider } from "@/components/ActivityLogsProvider";
 import { CaretakersProvider } from "@/components/CaretakersProvider";
 import { HouseholdProvider } from "@/components/HouseholdProvider";
+import { MoodLogsProvider } from "@/components/MoodLogsProvider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -56,7 +57,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <HouseholdProvider>
           <CaretakersProvider>
-            <ActivityLogsProvider>{children}</ActivityLogsProvider>
+            <ActivityLogsProvider>
+              <MoodLogsProvider>{children}</MoodLogsProvider>
+            </ActivityLogsProvider>
           </CaretakersProvider>
         </HouseholdProvider>
       </body>

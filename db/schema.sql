@@ -37,3 +37,16 @@ CREATE TABLE IF NOT EXISTS active_session (
   started_at    TIMESTAMPTZ NOT NULL,
   updated_at    TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+CREATE TABLE IF NOT EXISTS mood_logs (
+  id            TEXT PRIMARY KEY,
+  caretaker_id  TEXT REFERENCES caretakers(id) ON DELETE SET NULL,
+  mood          TEXT NOT NULL,
+  reasons       TEXT[] NOT NULL DEFAULT '{}',
+  note          TEXT,
+  logged_at     TIMESTAMPTZ NOT NULL,
+  created_at    TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS mood_logs_logged_at_idx
+  ON mood_logs (logged_at DESC);
