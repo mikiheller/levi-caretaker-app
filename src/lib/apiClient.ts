@@ -1,6 +1,9 @@
 import { Caretaker } from "@/lib/caretakers";
 import { ActiveSession, ActivityLog } from "@/lib/activityLogs";
 import { MoodLog } from "@/lib/moodLogs";
+import { PottyLog } from "@/lib/pottyLogs";
+import { BehaviorLog } from "@/lib/behaviorLogs";
+import { SkillAssessment } from "@/lib/skillAssessments";
 
 export const HOUSEHOLD_SECRET_KEY = "levi.householdSecret.v1";
 export const HOUSEHOLD_SECRET_HEADER = "x-household-secret";
@@ -102,6 +105,61 @@ export const api = {
       method: "POST",
       body: JSON.stringify(log),
     }),
+
+  listPottyLogs: (limit = 100) =>
+    request<{ logs: PottyLog[] }>(`/api/potty-logs?limit=${limit}`),
+
+  createPottyLog: (log: PottyLog) =>
+    request<{ log?: PottyLog; deduped?: boolean }>("/api/potty-logs", {
+      method: "POST",
+      body: JSON.stringify(log),
+    }),
+
+  listBehaviorLogs: (limit = 100) =>
+    request<{ logs: BehaviorLog[] }>(`/api/behavior-logs?limit=${limit}`),
+
+  createBehaviorLog: (log: BehaviorLog) =>
+    request<{ log?: BehaviorLog; deduped?: boolean }>("/api/behavior-logs", {
+      method: "POST",
+      body: JSON.stringify(log),
+    }),
+
+  transcribeAudio: async (blob: Blob, filename = "audio.webm") => {
+    const fd = new FormData();
+    fd.append("file", blob, filename);
+    fd.append("filename", filename);
+    const secret = loadHouseholdSecret();
+    const headers: Record<string, string> = {};
+    if (secret) headers[HOUSEHOLD_SECRET_HEADER] = secret;
+    const res = await fetch("/api/transcribe", {
+      method: "POST",
+      headers,
+      body: fd,
+    });
+    if (!res.ok) {
+      let msg = `Transcription failed (${res.status})`;
+      try {
+        const json = await res.json();
+        if (json?.error) msg = json.error;
+      } catch {}
+      throw new ApiError(res.status, msg);
+    }
+    return (await res.json()) as { text: string };
+  },
+
+  listSkillAssessments: (limit = 2000) =>
+    request<{ assessments: SkillAssessment[] }>(
+      `/api/skill-assessments?limit=${limit}`,
+    ),
+
+  createSkillAssessment: (assessment: SkillAssessment) =>
+    request<{ assessment?: SkillAssessment; deduped?: boolean }>(
+      "/api/skill-assessments",
+      {
+        method: "POST",
+        body: JSON.stringify(assessment),
+      },
+    ),
 
   runMigrations: () =>
     request<{ ok: true; applied: string[]; message: string }>(

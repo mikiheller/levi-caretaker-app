@@ -1,9 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ActivityLogsProvider } from "@/components/ActivityLogsProvider";
+import { BehaviorLogsProvider } from "@/components/BehaviorLogsProvider";
 import { CaretakersProvider } from "@/components/CaretakersProvider";
 import { HouseholdProvider } from "@/components/HouseholdProvider";
 import { MoodLogsProvider } from "@/components/MoodLogsProvider";
+import { PottyLogsProvider } from "@/components/PottyLogsProvider";
+import { SkillAssessmentsProvider } from "@/components/SkillAssessmentsProvider";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -58,7 +61,15 @@ export default function RootLayout({
         <HouseholdProvider>
           <CaretakersProvider>
             <ActivityLogsProvider>
-              <MoodLogsProvider>{children}</MoodLogsProvider>
+              <MoodLogsProvider>
+                <PottyLogsProvider>
+                  <BehaviorLogsProvider>
+                    <SkillAssessmentsProvider>
+                      {children}
+                    </SkillAssessmentsProvider>
+                  </BehaviorLogsProvider>
+                </PottyLogsProvider>
+              </MoodLogsProvider>
             </ActivityLogsProvider>
           </CaretakersProvider>
         </HouseholdProvider>

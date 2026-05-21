@@ -50,3 +50,48 @@ CREATE TABLE IF NOT EXISTS mood_logs (
 
 CREATE INDEX IF NOT EXISTS mood_logs_logged_at_idx
   ON mood_logs (logged_at DESC);
+
+CREATE TABLE IF NOT EXISTS potty_logs (
+  id              TEXT PRIMARY KEY,
+  caretaker_id    TEXT REFERENCES caretakers(id) ON DELETE SET NULL,
+  type            TEXT NOT NULL CHECK (type IN ('toilet', 'accident')),
+  initiator       TEXT,
+  pee             BOOLEAN,
+  poop            BOOLEAN,
+  accident_type   TEXT,
+  what_was_doing  TEXT,
+  note            TEXT,
+  logged_at       TIMESTAMPTZ NOT NULL,
+  created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS potty_logs_logged_at_idx
+  ON potty_logs (logged_at DESC);
+
+CREATE TABLE IF NOT EXISTS behavior_logs (
+  id            TEXT PRIMARY KEY,
+  caretaker_id  TEXT REFERENCES caretakers(id) ON DELETE SET NULL,
+  text          TEXT NOT NULL,
+  media         JSONB NOT NULL DEFAULT '[]'::jsonb,
+  logged_at     TIMESTAMPTZ NOT NULL,
+  created_at    TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS behavior_logs_logged_at_idx
+  ON behavior_logs (logged_at DESC);
+
+CREATE TABLE IF NOT EXISTS skill_assessments (
+  id            TEXT PRIMARY KEY,
+  item_id       TEXT NOT NULL,
+  caretaker_id  TEXT REFERENCES caretakers(id) ON DELETE SET NULL,
+  rating        SMALLINT NOT NULL CHECK (rating BETWEEN 0 AND 3),
+  note          TEXT,
+  assessed_at   TIMESTAMPTZ NOT NULL,
+  created_at    TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS skill_assessments_item_idx
+  ON skill_assessments (item_id);
+
+CREATE INDEX IF NOT EXISTS skill_assessments_assessed_at_idx
+  ON skill_assessments (assessed_at DESC);
