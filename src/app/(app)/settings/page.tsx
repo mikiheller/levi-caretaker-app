@@ -1,11 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { Trash2, UserPlus, RefreshCw, Check, LogOut } from "lucide-react";
+import {
+  Trash2,
+  UserPlus,
+  RefreshCw,
+  Check,
+  LogOut,
+  Database,
+  Loader2,
+} from "lucide-react";
 import { useCaretakers } from "@/components/CaretakersProvider";
 import { useHousehold } from "@/components/HouseholdProvider";
 import { SectionHero } from "@/components/SectionHero";
 import { CARETAKER_ROLES, CaretakerRole } from "@/lib/caretakers";
+import { ApiError, api } from "@/lib/apiClient";
 
 export default function SettingsPage() {
   const {
@@ -20,6 +29,25 @@ export default function SettingsPage() {
   const [showForm, setShowForm] = useState(false);
   const [name, setName] = useState("");
   const [role, setRole] = useState<CaretakerRole>("Nanny");
+  const [migrateState, setMigrateState] = useState<
+    | { kind: "idle" }
+    | { kind: "running" }
+    | { kind: "success"; message: string }
+    | { kind: "error"; message: string }
+  >({ kind: "idle" });
+
+  async function runMigrations() {
+    setMigrateState({ kind: "running" });
+    try {
+      const res = await api.runMigrations();
+      setMigrateState({ kind: "success", message: res.message });
+      setTimeout(() => window.location.reload(), 1500);
+    } catch (e) {
+      const message =
+        e instanceof ApiError ? e.message : "Couldn't reach the server.";
+      setMigrateState({ kind: "error", message });
+    }
+  }
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -145,6 +173,58 @@ export default function SettingsPage() {
             );
           })}
         </ul>
+      </section>
+
+      <section>
+        <h2 className="text-sm font-semibold uppercase tracking-wider text-muted mb-3">
+          Database
+        </h2>
+        <div className="rounded-2xl bg-surface border border-border p-4 space-y-3">
+          <div className="flex items-start gap-3">
+            <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary-soft text-primary shrink-0">
+              <Database size={18} />
+            </span>
+            <div className="flex-1">
+              <div className="font-medium text-sm">Set up database tables</div>
+              <div className="text-xs text-muted mt-0.5 leading-relaxed">
+                Run this once after creating your Neon Postgres database, or
+                any time the app gets updated and adds new tables. Safe to run
+                multiple times.
+              </div>
+            </div>
+          </div>
+
+          <button
+            onClick={runMigrations}
+            disabled={migrateState.kind === "running"}
+            className="w-full flex items-center justify-center gap-2 rounded-xl bg-primary text-white font-semibold py-3 active:scale-[0.98] transition disabled:bg-primary/40"
+          >
+            {migrateState.kind === "running" ? (
+              <>
+                <Loader2 size={16} className="animate-spin" />
+                Setting up…
+              </>
+            ) : (
+              <>
+                <Database size={16} />
+                Set up / update tables
+              </>
+            )}
+          </button>
+
+          {migrateState.kind === "success" && (
+            <p className="text-sm text-green-700 bg-green-50 border border-green-100 rounded-xl px-3 py-2.5 flex items-center gap-2">
+              <Check size={15} />
+              {migrateState.message} Reloading…
+            </p>
+          )}
+
+          {migrateState.kind === "error" && (
+            <p className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-xl px-3 py-2.5">
+              {migrateState.message}
+            </p>
+          )}
+        </div>
       </section>
 
       <section className="space-y-2">

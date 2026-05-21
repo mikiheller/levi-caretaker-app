@@ -102,4 +102,10 @@ export const api = {
       method: "POST",
       body: JSON.stringify(log),
     }),
+
+  runMigrations: () =>
+    request<{ ok: true; applied: string[]; message: string }>(
+      "/api/admin/migrate",
+      { method: "POST" },
+    ),
 };
